@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <title>Aayushi Ghosh | Web Developer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0a192f',
+                            light: '#112240',
+                            lightest: '#233554',
+                        },
+                        slate: {
+                            DEFAULT: '#8892b0',
+                            light: '#a8b2d1',
+                            lightest: '#ccd6f6',
+                        },
+                        teal: {
+                            DEFAULT: '#64ffda',
+                            tint: 'rgba(100, 255, 218, 0.1)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style type="text/tailwindcss">
+        body {
+            background-color: #0a192f;
+            color: #8892b0;
+            overflow-x: hidden;
+        }
+
+        .section-heading {
+            @apply flex items-center w-full whitespace-nowrap text-2xl md:text-3xl font-bold text-slate-lightest mb-10;
+        }
+        
+        .section-heading::after {
+            content: "";
+            @apply block w-full md:w-72 h-[1px] bg-navy-lightest ml-6 relative top-[2px];
+        }
+
+        .nav-link {
+            @apply text-slate hover:text-teal font-mono text-[13px] transition-colors duration-300;
+        }
+
+        .nav-link-num {
+            @apply text-teal mr-1;
+        }
+
+        /* Buttons */
+        .btn-outline {
+            @apply text-teal bg-transparent border border-teal rounded px-6 py-3 font-mono text-sm hover:bg-teal-tint hover:-translate-y-1 transition-all duration-300;
+        }
+        .btn-primary {
+            @apply text-navy bg-teal border border-teal rounded px-6 py-3 font-mono text-sm font-bold hover:bg-transparent hover:text-teal transition-all duration-300;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Initial Load Keyframe Animations */
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animate-slide-up {
+            opacity: 0;
+            animation: slideUpFade 0.6s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+        }
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Staggered Delays */
+        .delay-100 { animation-delay: 100ms; transition-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; transition-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; transition-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; transition-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; transition-delay: 500ms; }
+        .delay-800 { animation-delay: 800ms; transition-delay: 800ms; }
+        .delay-1000 { animation-delay: 1000ms; transition-delay: 1000ms; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a192f; }
+        ::-webkit-scrollbar-thumb { background: #495670; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8892b0; }
+        
+        /* Specific List bullets */
+        .skill-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #64ffda;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        
+        /* Interactive Cards */
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), box-shadow 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -15px rgba(2, 12, 27, 0.7);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-teal-tint selection:text-teal">
+
+    <nav id="navbar"
+        class="fixed w-full z-50 transition-all duration-300 py-6 bg-navy/90 backdrop-blur-md shadow-lg shadow-navy-light/20 animate-fade-in delay-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+            <a href="#home"
+                class="text-teal font-mono text-2xl font-bold tracking-tighter hover:bg-teal-tint p-2 rounded transition-colors flex items-center justify-center w-12 h-12 border-2 border-teal border-dashed hover:-translate-y-1">
+                A
+            </a>
+
+            <div class="hidden md:flex space-x-6 lg:space-x-8 items-center">
+                <a href="#about" class="nav-link"><span class="nav-link-num">01.</span>About</a>
+                <a href="#experience" class="nav-link"><span class="nav-link-num">02.</span>Experience</a>
+                <a href="#education" class="nav-link"><span class="nav-link-num">03.</span>Education</a>
+                <a href="#work" class="nav-link"><span class="nav-link-num">04.</span>Work</a>
+                <a href="#blog" class="nav-link"><span class="nav-link-num">05.</span>Blog</a>
+                <a href="#contact" class="nav-link"><span class="nav-link-num">06.</span>Contact</a>
+                <a href="Aayushi Ghosh - 09-05-2026.pdf" class="btn-outline ml-4" target="_blank">Resume</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-teal hover:text-white focus:outline-none z-50 relative">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-navy-light transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-6 z-40">
+            <a href="#about"
+                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
+                    class="text-teal mb-1 text-sm">01.</span> About</a>
+            <a href="#experience"
+                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
+                    class="text-teal mb-1 text-sm">02.</span> Experience</a>
+            <a href="#education"
+                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
+                    class="text-teal mb-1 text-sm">03.</span> Education</a>
+            <a href="#work"
+                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
+                    class="text-teal mb-1 text-sm">04.</span> Work</a>
+            <a href="#blog"
+                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
+                    class="text-teal mb-1 text-sm">05.</span> Blog</a>
+            <a href="#contact"
+                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
+                    class="text-teal mb-1 text-sm">06.</span> Contact</a>
+            <a href="#contact" class="btn-outline mt-8 w-48 text-center mobile-link">Resume</a>
+        </div>
+    </nav>
+
+    <div class="hidden md:block fixed left-10 bottom-0 w-10 z-50 animate-slide-up delay-800">
+        <ul
+            class="flex flex-col items-center space-y-6 after:content-[''] after:w-[1px] after:h-24 after:bg-slate after:mt-6">
+            <li><a href="https://github.com/aayushi-2091"
+                    class="text-slate hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                        class="fab fa-github text-xl"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/aayushi-ghosh-10b819223/"
+                    class="text-slate hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                        class="fab fa-linkedin-in text-xl"></i></a></li>
+            <li><a href="#" class="text-slate hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                        class="fab fa-codepen text-xl"></i></a></li>
+        </ul>
+    </div>
+    <div class="hidden md:block fixed right-10 bottom-0 w-10 z-50 animate-slide-up delay-1000">
+        <div
+            class="flex flex-col items-center space-y-6 after:content-[''] after:w-[1px] after:h-24 after:bg-slate after:mt-6">
+            <a href="mailto:aayushig291@gmail.com"
+                class="font-mono text-sm tracking-[0.1em] text-slate hover:text-teal hover:-translate-y-1 transition-all duration-300"
+                style="writing-mode: vertical-rl;">
+                aayushig291@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <main class="px-6 md:px-24 lg:px-48 max-w-[1600px] mx-auto min-h-screen pt-32">
+
+        <section id="home" class="min-h-screen flex flex-col justify-center items-start pb-32">
+            <div>
+                <p class="text-teal font-mono mb-5 ml-1 animate-slide-up delay-100">Hi, my name is</p>
+                <h1
+                    class="text-5xl sm:text-6xl md:text-8xl font-bold text-slate-lightest mb-4 tracking-tight animate-slide-up delay-200">
+                    Aayushi Ghosh.
+                </h1>
+                <h2
+                    class="text-4xl sm:text-5xl md:text-7xl font-bold text-slate mb-6 tracking-tight leading-tight animate-slide-up delay-300">
+                    I develop things for the web.
+                </h2>
+                <p class="max-w-xl text-slate text-lg mb-12 leading-relaxed animate-slide-up delay-400">
+                    I’m a Web Developer specializing in custom WordPress CMS websites and WooCommerce solutions, while
+                    continuously broadening my knowledge in frontend and backend development.
+                </p>
+                <div class="animate-slide-up delay-500">
+                    <a href="#work" class="btn-outline px-8 py-4 text-base inline-block">Check out my work!</a>
+                </div>
+
+                <div
+                    class="mt-16 flex flex-col md:flex-row items-center justify-between bg-navy-light border border-navy-lightest rounded-xl px-10 py-6 max-w-2xl gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-navy-lightest shadow-2xl animate-slide-up delay-800 hover-lift relative z-10">
+                    <div class="px-8 text-center md:text-left w-full group">
+                        <h3 class="stat-counter text-4xl font-extrabold text-teal font-mono mb-2 tracking-tight"
+                            data-target="1.3" data-suffix="+">1.3</h3>
+                        <p class="text-slate text-sm font-medium whitespace-nowrap">Years Experience</p>
+                    </div>
+                    <div class="px-8 text-center md:text-left w-full group">
+                        <h3 class="stat-counter text-4xl font-extrabold text-teal font-mono mb-2 tracking-tight"
+                            data-target="25" data-suffix="+">25</h3>
+                        <p class="text-slate text-sm font-medium whitespace-nowrap">Projects Done</p>
+                    </div>
+                    <div class="px-8 text-center md:text-left w-full group">
+                        <h3 class="stat-counter text-4xl font-extrabold text-teal font-mono mb-2 tracking-tight"
+                            data-target="30" data-suffix="+">30</h3>
+                        <p class="text-slate text-sm font-medium whitespace-nowrap">Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 max-w-4xl mx-auto">
+            <div class="reveal">
+                <h2 class="section-heading"><span
+                        class="text-teal font-mono text-xl md:text-2xl font-normal mr-3">01.</span> About Me</h2>
+
+                <div class="grid md:grid-cols-5 gap-12">
+                    <div class="md:col-span-3 text-lg leading-relaxed text-slate">
+                        <p class="mb-4">
+                            Hi, I’m Aayushi Ghosh, a passionate web developer, and my journey into web development began
+                            with a curiosity for turning static designs into interactive websites—experimenting with
+                            HTML, CSS, and then customizing WordPress themes to see ideas come to life in real time.
+                        </p>
+                        <p class="mb-4">
+                            Today, I have <span class="text-teal">1.3 years of professional experience</span> building
+                            dynamic and user-friendly websites, <span class="text-teal">delivering 25+ live
+                                projects</span> ranging from corporate websites to CMS-driven platforms. My <span
+                                class="text-teal">professional experience at Falk Technology Pvt. Ltd.</span> focused on
+                            building custom WordPress themes, developing reusable theme components, transforming HTML
+                            designs into custom WordPress templates, creating dynamic content systems, and supporting
+                            eCommerce functionality.
+                        </p>
+                        <p class="mb-6">
+                            I specialize in:
+                        </p>
+
+                        <ul
+                            class="grid grid-cols-2 gap-x-4 gap-y-2 font-mono text-sm text-slate skill-list relative pl-5">
+                            <li
+                                class="relative pl-5 mb-2 transition-transform hover:text-teal hover:translate-x-1 cursor-default">
+                                Custom WordPress Theme Development</li>
+                            <li
+                                class="relative pl-5 mb-2 transition-transform hover:text-teal hover:translate-x-1 cursor-default">
+                                WooCommerce customization & template overrides</li>
+                            <li
+                                class="relative pl-5 mb-2 transition-transform hover:text-teal hover:translate-x-1 cursor-default">
+                                Dynamic content systems using ACF + CPT UI</li>
+                            <li
+                                class="relative pl-5 mb-2 transition-transform hover:text-teal hover:translate-x-1 cursor-default">
+                                Elementor landing pages as personal development projects</li>
+                            <li
+                                class="relative pl-5 mb-2 transition-transform hover:text-teal hover:translate-x-1 cursor-default">
+                                Plugin customization and custom plugin development</li>
+                            <li
+                                class="relative pl-5 mb-2 transition-transform hover:text-teal hover:translate-x-1 cursor-default">
+                                Backend development using PHP + MySQL (CRUD applications)</li>
+
+                            <li
+                                class="relative pl-5 mb-2 transition-transform hover:text-teal hover:translate-x-1 cursor-default">
+                                Website maintenance, optimization, backups, and debugging</li>
+                        </ul>
+                    </div>
+
+                    <div class="md:col-span-2 relative group w-3/4 md:w-full mx-auto md:mx-0">
+                        <div
+                            class="relative z-10 rounded bg-teal transition-all duration-300 transform group-hover:-translate-x-2 group-hover:-translate-y-2 mix-blend-multiply filter grayscale hover:grayscale-0 hover:mix-blend-normal">
+                            <img src="portfolio-1.jpeg" alt="Aayushi"
+                                class="rounded w-full h-auto object-cover opacity-80" style="aspect-ratio: 1/1;">
+                        </div>
+                        <div
+                            class="absolute inset-0 border-2 border-teal rounded z-0 transform translate-x-4 translate-y-4 transition-all duration-300 group-hover:translate-x-3 group-hover:translate-y-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 max-w-3xl mx-auto">
+            <div class="reveal">
+                <h2 class="section-heading"><span
+                        class="text-teal font-mono text-xl md:text-2xl font-normal mr-3">02.</span> Where I've Worked
+                </h2>
+
+                <div class="flex flex-col md:flex-row gap-4 md:gap-8 mt-10">
+                    <div
+                        class="flex md:flex-col overflow-x-auto md:overflow-x-visible border-b md:border-b-0 md:border-l border-navy-lightest shrink-0 w-full md:w-48 scrollbar-hide">
+                        <button
+                            class="px-5 py-3 border-b-2 md:border-b-0 md:border-l-2 border-teal bg-navy-light text-teal font-mono text-sm text-left whitespace-nowrap md:whitespace-normal transition-all hover:bg-navy-light">
+                            Falk Technology Pvt. Ltd.
+                        </button>
+                    </div>
+
+                    <div class="w-full pt-2 md:pt-0 reveal delay-100">
+                        <h3 class="text-xl md:text-2xl font-medium text-slate-lightest mb-1">
+                            Junior Web Developer <span class="text-teal">@ Falk Technology Pvt. Ltd.</span>
+                        </h3>
+                        <p class="font-mono text-sm text-slate-light mb-6">November 2024 - February 2026</p>
+
+                        <ul class="text-slate text-base flex flex-col space-y-4 skill-list relative pl-5">
+                            <li class="relative pl-6 leading-relaxed">
+                                Developed 25+ dynamic single-page and multi-page websites, delivering responsive and
+                                user-friendly digital solutions.
+                            </li>
+
+                            <li class="relative pl-6 leading-relaxed">
+                                Built custom themes and reusable templates using <span
+                                    class="text-teal">WordPress</span>, converting static HTML designs into dynamic
+                                CMS-driven websites.
+                            </li>
+
+                            <li class="relative pl-6 leading-relaxed">
+                                Created dynamic content systems using <span class="text-teal">ACF</span> and <span
+                                    class="text-teal">CPT UI</span>, enabling easy content management for clients.
+                            </li>
+
+                            <li class="relative pl-6 leading-relaxed">
+                                Supported <span class="text-teal">WooCommerce</span> development, plugin integrations,
+                                bug fixing, website maintenance, backups, and performance optimization.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-24 max-w-3xl mx-auto">
+            <div class="reveal">
+                <h2 class="section-heading"><span
+                        class="text-teal font-mono text-xl md:text-2xl font-normal mr-3">03.</span> Education</h2>
+
+                <div
+                    class="mt-10 relative border-l border-navy-lightest ml-4 md:ml-0 pl-6 md:pl-8 before:absolute before:content-[''] before:w-3 before:h-3 before:bg-navy before:border-2 before:border-teal before:rounded-full before:-left-[7px] before:top-1.5 hover-lift bg-navy-light p-6 rounded-r-lg border border-transparent hover:border-teal/20">
+                    <h3 class="text-xl md:text-2xl font-medium text-slate-lightest mb-1">
+                        Bachelor of Technology (B.Tech)
+                    </h3>
+                    <p class="text-teal font-mono text-sm mb-4">Brainware University | 2020 - 2024 | 9.73 CGPA</p>
+                    <p class="text-slate text-base leading-relaxed">
+                        Built a strong foundation in computer science with focus on programming, data structures,
+                        database management, and problem-solving through academic projects and practical development.
+                    </p>
+                </div>
+
+                <div
+                    class="mt-10 relative border-l border-navy-lightest ml-4 md:ml-0 pl-6 md:pl-8 before:absolute before:content-[''] before:w-3 before:h-3 before:bg-navy before:border-2 before:border-teal before:rounded-full before:-left-[7px] before:top-1.5 hover-lift bg-navy-light p-6 rounded-r-lg border border-transparent hover:border-teal/20">
+                    <h3 class="text-xl md:text-2xl font-medium text-slate-lightest mb-1">
+                        Class 12 -ISC
+                    </h3>
+                    <p class="text-teal font-mono text-sm mb-4">AUTHPUR NATIONAL MODEL H.S SCHOOL | 2018 - 2020 | 76%
+                    </p>
+                    <p class="text-slate text-base leading-relaxed">
+                        Studied science with emphasis on analytical thinking, mathematics, and logical reasoning, which
+                        strengthened my interest in technology and software development.
+                    </p>
+                </div>
+
+                <div
+                    class="mt-10 relative border-l border-navy-lightest ml-4 md:ml-0 pl-6 md:pl-8 before:absolute before:content-[''] before:w-3 before:h-3 before:bg-navy before:border-2 before:border-teal before:rounded-full before:-left-[7px] before:top-1.5 hover-lift bg-navy-light p-6 rounded-r-lg border border-transparent hover:border-teal/20">
+                    <h3 class="text-xl md:text-2xl font-medium text-slate-lightest mb-1">
+                        Class 10 -ICSE
+                    </h3>
+                    <p class="text-teal font-mono text-sm mb-4">ST. AUGUSTINE’S DAY SCHOOL | 2005 - 2018 | 81.4%</p>
+                    <p class="text-slate text-base leading-relaxed">
+                        Developed core academic fundamentals, discipline, and curiosity for technology, laying the
+                        foundation for my future journey in computer science.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="py-24 max-w-5xl mx-auto">
+            <div class="reveal">
+                <h2 class="section-heading"><span
+                        class="text-teal font-mono text-xl md:text-2xl font-normal mr-3">04.</span> Some Things I've
+                    Developed</h2>
+
+                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-24 reveal delay-100 group">
+                    <div
+                        class="md:col-span-7 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                        <div
+                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                            <img src="work1.png" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative z-20 md:col-span-6 md:col-start-7 md:text-right p-6 md:p-0 flex flex-col justify-center h-full text-left col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
+                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                        <h3
+                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                            FusionKart</h3>
+                        <div
+                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
+                            <p>
+                                Developed a fully customized informational CMS website using WordPress, featuring
+                                dynamic navigation, custom content management, service sections, FAQ modules, and
+                                integrated
+                                contact forms. Built a highly responsive custom UI on the Twenty Twenty-One theme with
+                                custom
+                                template files, successfully converting a static HTML, CSS, and JavaScript design into a
+                                dynamic
+                                and scalable WordPress solution.
+                            </p>
+                        </div>
+                        <ul class="flex flex-wrap md:justify-end font-mono text-xs text-slate-light gap-4 mb-4">
+                            <li>WordPress</li>
+                            <li>Twenty Twenty-One theme</li>
+                            <li>ACF Pro</li>
+                            <li>Contact Form 7</li>
+                        </ul>
+                        <div class="flex md:justify-end gap-4 text-slate-light pointer-events-auto">
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fab fa-github text-xl"></i></a>
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-24 reveal delay-100 group">
+                    <div
+                        class="relative z-20 md:col-span-6 text-left p-6 md:p-0 flex flex-col justify-center h-full col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
+                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                        <h3
+                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                            EduVista</h3>
+                        <div
+                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
+                            <p>Developed EduVista, a fully customized multi-page educational website built with
+                                WordPress and Elementor. Created responsive and engaging page layouts with dynamic
+                                content sections, intuitive navigation, course highlights, service modules, and
+                                integrated contact forms, ensuring a seamless user experience across all devices.</p>
+                        </div>
+                        <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-4 mb-4">
+                            <li>WordPress</li>
+                            <li>Hello Elementor theme</li>
+                            <li>Elementor</li>
+                            <li>CSS</li>
+                        </ul>
+                        <div class="flex gap-4 text-slate-light pointer-events-auto">
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fab fa-github text-xl"></i></a>
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="md:col-span-7 md:col-start-6 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                        <div
+                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                            <img src="work2.jpeg" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-10 reveal delay-100 group">
+                    <div
+                        class="md:col-span-7 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                        <div
+                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                            <img src="work3.jpeg" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
+                        </div>
+                    </div>
+
+                    <div
+                        class="relative z-20 md:col-span-6 md:col-start-7 md:text-right p-6 md:p-0 flex flex-col justify-center h-full text-left col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
+                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                        <h3
+                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                            WooSample</h3>
+                        <div
+                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
+                            <p>Developed WooSample, a fully customized e-commerce website built with
+                                WordPress and WooCommerce. Implemented dynamic product listings, detailed product pages,
+                                category-based sidebar navigation, integrated product search, custom template overrides,
+                                cart and checkout functionality, and multiple plugin integrations to create a seamless
+                                and responsive shopping experience.</p>
+                        </div>
+                        <ul class="flex flex-wrap md:justify-end font-mono text-xs text-slate-light gap-4 mb-4">
+                            <li>WordPress</li>
+                            <li>Twenty Twenty-One theme</li>
+                            <li>WooCommerce</li>
+                        </ul>
+                        <div class="flex md:justify-end gap-4 text-slate-light pointer-events-auto">
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fab fa-github text-xl"></i></a>
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-24 reveal delay-100 group">
+                    <div
+                        class="relative z-20 md:col-span-6 text-left p-6 md:p-0 flex flex-col justify-center h-full col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
+                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                        <h3
+                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                            CustomAura</h3>
+                        <div
+                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
+                            <p>
+                                Developed <strong>CustomAura</strong>, a fully customized single-page WordPress website
+                                using a custom theme and custom template files. Integrated essential plugins,
+                                implemented
+                                dynamic content management with ACF to create an engaging and user-friendly online
+                                presence.
+                            </p>
+                        </div>
+                        <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-4 mb-4">
+                            <li>WordPress</li>
+                            <li>Custom Theme</li>
+                            <li>ACF Pro</li>
+                        </ul>
+                        <div class="flex gap-4 text-slate-light pointer-events-auto">
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fab fa-github text-xl"></i></a>
+                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="md:col-span-7 md:col-start-6 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                        <div
+                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                            <img src="work4.jpeg" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20 flex justify-center reveal delay-200">
+                    <a href="https://github.com/aayushi-2091" target="_blank"
+                        class="btn-outline px-8 py-4 flex items-center gap-3">
+                        See All Projects <i class="fab fa-github text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="py-24 max-w-5xl mx-auto">
+            <div class="reveal">
+                <h2 class="section-heading"><span
+                        class="text-teal font-mono text-xl md:text-2xl font-normal mr-3">05.</span> Latest Articles</h2>
+
+                <div class="relative mt-10">
+
+                    <!-- Left arrow -->
+                    <button id="blogPrev"
+                        class="absolute left-[-60px] top-1/2 -translate-y-1/2 z-20 text-teal text-2xl hover:scale-110 transition">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Slider -->
+                    <div id="blogSlider" class="flex gap-6 overflow-hidden scroll-smooth">
+
+                        <!-- your cards stay same here -->
+                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
+                            onclick="openBlogModal('blog1')">
+                            <div class="flex justify-between items-center mb-6">
+                                <i
+                                    class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
+                                <i
+                                    class="fas fa-arrow-right text-slate group-hover:text-teal group-hover:translate-x-2 transition-all duration-300"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-lightest mb-3 group-hover:text-teal transition-colors">
+                                Transforming Static Designs with WordPress</h3>
+                            <p class="text-slate text-sm mb-6 flex-grow">Building a WordPress website starts with
+                                transforming static HTML designs into reusable theme components.</p>
+                            <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
+                        </div>
+
+                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
+                            onclick="openBlogModal('blog2')">
+                            <div class="flex justify-between items-center mb-6">
+                                <i
+                                    class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
+                                <i
+                                    class="fas fa-arrow-right text-slate group-hover:text-teal group-hover:translate-x-2 transition-all duration-300"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-lightest mb-3 group-hover:text-teal transition-colors">
+                                Customizing WooCommerce Beyond Default Templates</h3>
+                            <p class="text-slate text-sm mb-6 flex-grow">Creating a seamless e-commerce experience often
+                                requires going beyond WooCommerce’s default layouts.</p>
+                            <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
+                        </div>
+
+                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
+                            onclick="openBlogModal('blog2')">
+                            <div class="flex justify-between items-center mb-6">
+                                <i
+                                    class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
+                                <i
+                                    class="fas fa-arrow-right text-slate group-hover:text-teal group-hover:translate-x-2 transition-all duration-300"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-lightest mb-3 group-hover:text-teal transition-colors">
+                                Building Flexible Websites with Elementor and WordPress</h3>
+                            <p class="text-slate text-sm mb-6 flex-grow">Creating modern business websites with
+                                Elementor
+                                allows rapid development without compromising design quality.</p>
+                            <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
+                        </div>
+
+                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
+                            onclick="openBlogModal('blog2')">
+                            <div class="flex justify-between items-center mb-6">
+                                <i
+                                    class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
+                                <i
+                                    class="fas fa-arrow-right text-slate group-hover:text-teal group-hover:translate-x-2 transition-all duration-300"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-lightest mb-3 group-hover:text-teal transition-colors">
+                                Crafting Custom WordPress Themes from Static Designs</h3>
+                            <p class="text-slate text-sm mb-6 flex-grow">Custom theme development transforms static
+                                HTML,
+                                CSS, and JavaScript designs into fully dynamic WordPress experiences.</p>
+                            <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
+                        </div>
+
+                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
+                            onclick="openBlogModal('blog2')">
+                            <div class="flex justify-between items-center mb-6">
+                                <i
+                                    class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
+                                <i
+                                    class="fas fa-arrow-right text-slate group-hover:text-teal group-hover:translate-x-2 transition-all duration-300"></i>
+                            </div>
+                            <h3
+                                class="text-xl font-bold text-slate-lightest mb-3 group-hover:text-teal transition-colors">
+                                Building My First WordPress Plugin from Scratch</h3>
+                            <p class="text-slate text-sm mb-6 flex-grow">Developing a custom plugin provides a deeper
+                                understanding of WordPress architecture beyond theme development.</p>
+                            <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Right arrow -->
+                    <button id="blogNext"
+                        class="absolute right-[-60px] top-1/2 -translate-y-1/2 z-20 text-teal text-2xl hover:scale-110 transition">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <div id="blog-modal"
+            class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+            <div class="absolute inset-0 bg-navy/90 backdrop-blur-sm" onclick="closeBlogModal()"></div>
+
+            <div class="relative bg-navy-light w-11/12 md:w-3/4 max-w-3xl max-h-[85vh] overflow-y-auto rounded-lg shadow-2xl p-8 md:p-12 transform scale-95 transition-transform duration-300 border border-navy-lightest"
+                id="modal-container">
+                <button onclick="closeBlogModal()"
+                    class="absolute top-6 right-6 text-slate hover:text-teal text-2xl transition-colors hover:rotate-90 duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="modal-body" class="mt-4">
+                </div>
+            </div>
+        </div>
+
+        <section id="contact" class="py-32 max-w-2xl mx-auto text-center">
+            <div class="reveal">
+                <p class="font-mono text-teal text-sm mb-4">06. What's Next?</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-lightest mb-6">Get In Touch</h2>
+                <p class="text-slate text-lg mb-12">
+                    I'm currently looking for any new opportunities to utilize my skills. Whether you have a question, a
+                    project idea, or just want to say hi, my inbox is always open. I'll try my best to get back to you!
+                </p>
+                <a href="mailto:aayushig291@gmail.com" class="btn-outline px-10 py-5 text-base">Say Hello</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-6 text-center text-slate font-mono text-xs flex flex-col items-center">
+        <div class="flex md:hidden space-x-6 mb-4">
+            <a href="https://github.com/aayushi-2091" class="hover:text-teal transition-colors"><i
+                    class="fab fa-github text-lg"></i></a>
+            <a href="https://www.linkedin.com/in/aayushi-ghosh-10b819223/" class="hover:text-teal transition-colors"><i
+                    class="fab fa-linkedin-in text-lg"></i></a>
+            <a href="#" class="hover:text-teal transition-colors"><i class="fab fa-codepen text-lg"></i></a>
+        </div>
+
+        <a href="#" class="hover:text-teal transition-colors mb-2">Designed & Built by Aayushi Ghosh</a>
+        <p>© 2026 Aayushi Ghosh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+
+                if (currentScroll > 0) {
+                    navbar.classList.add('shadow-lg');
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                }
+
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScroll = currentScroll;
+            });
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('translate-x-full');
+                    mobileBtn.innerHTML = '<i class="fas fa-times text-2xl text-teal hover:rotate-90 transition-transform duration-300"></i>';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileBtn.innerHTML = '<i class="fas fa-bars text-2xl transition-transform duration-300"></i>';
+                    document.body.style.overflow = 'auto';
+                }
+            }
+
+            mobileBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => { link.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); }); });
+
+            // Reveal Animations on Scroll
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Statistics Number Counter Animation
+            const statCounters = document.querySelectorAll('.stat-counter');
+            const statsObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = parseInt(target.getAttribute('data-target'));
+                        const suffix = target.getAttribute('data-suffix') || '';
+                        const duration = 2000; // 2 seconds animation
+                        let startTimestamp = null;
+
+                        const step = (timestamp) => {
+                            if (!startTimestamp) startTimestamp = timestamp;
+                            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+                            // easeOutQuart formula for smooth deceleration
+                            const easeProgress = 1 - Math.pow(1 - progress, 4);
+                            const currentVal = Math.floor(easeProgress * finalValue);
+
+                            target.innerText = currentVal + suffix;
+
+                            if (progress < 1) {
+                                window.requestAnimationFrame(step);
+                            } else {
+                                target.innerText = finalValue + suffix; // Ensure it ends exactly on the number
+                            }
+                        };
+                        window.requestAnimationFrame(step);
+                        observer.unobserve(target); // Only run animation once
+                    }
+                });
+            }, { threshold: 0.5 }); // Trigger when 50% of the box is visible
+
+            statCounters.forEach(counter => statsObserver.observe(counter));
+
+            // Blog Modal Logic
+            const blogData = {
+                'blog1': {
+                    title: 'Turning Static Designs into Dynamic WordPress Experiences',
+                    date: 'January 2025',
+                    tags: ['WordPress', 'Custom Themes', 'ACF'],
+                    content: `
+                        <p class="text-slate text-lg leading-relaxed mb-6">Building a scalable WordPress website starts with transforming static HTML, CSS, and JavaScript designs into reusable theme components. By structuring layouts with custom template files, headers, footers, and modular sections, content becomes easier to manage and expand.</p>
+
+                        <p class="text-slate leading-relaxed mb-4">Using Advanced Custom Fields (ACF) allows non-technical users to update content dynamically without touching code. This approach creates flexible, client-friendly CMS solutions while maintaining complete design control.</p>
+                    `
+                },
+                'blog2': {
+                    title: 'Customizing WooCommerce Beyond Default Templates',
+                    date: 'September 2025',
+                    tags: ['WooCommerce', 'Template Override', 'Hooks & Filters', 'Customization'],
+                    content: `
+                        <p class="text-slate text-lg leading-relaxed mb-6">Creating a seamless e-commerce experience often requires going beyond WooCommerce’s default layouts. Through template overrides, custom product pages, category sidebars, search integration, and checkout enhancements, stores can be tailored to specific business needs.</p>
+
+                        <p class="text-slate leading-relaxed mb-4">Understanding hooks like add_action() and add_filter() makes it possible to extend functionality without modifying core files, ensuring maintainability while delivering fully customized shopping experiences.</p>
+                    `
+                },
+                'blog3': {
+                    title: 'Building Flexible Websites with Elementor and WordPress',
+                    date: 'November 2025',
+                    tags: ['WordPress', 'Elementor', 'Customization'],
+                    content: `
+                        <p class="text-slate text-lg leading-relaxed mb-6">Creating modern business websites with Elementor allows rapid development without compromising design quality. By combining custom layouts, reusable sections, dynamic widgets, and responsive controls, complex multi-page websites can be built efficiently for both clients and content teams.</p>
+
+                        <p class="text-slate leading-relaxed mb-4">Optimizing spacing, typography, mobile responsiveness, and plugin compatibility ensures every page delivers a smooth experience across devices while keeping content updates simple and intuitive.</p>
+                    `
+                },
+                'blog4': {
+                    title: 'Crafting Custom WordPress Themes from Static Designs',
+                    date: 'November 2025',
+                    tags: ['WordPress', 'Custom Themes', 'Template Files', 'PHP'],
+                    content: `
+                        <p class="text-slate text-lg leading-relaxed mb-6">Custom theme development transforms static HTML, CSS, and JavaScript designs into fully dynamic WordPress experiences. By structuring layouts with custom template files, reusable components, and WordPress core functions, every section becomes scalable, editable, and performance-focused.</p>
+
+                        <p class="text-slate leading-relaxed mb-4">Integrating plugins, dynamic content fields, and modular page templates creates flexible CMS solutions that maintain design consistency while giving complete control over functionality and content management.</p>
+                    `
+                },
+                'blog5': {
+                    title: 'Building My First WordPress Plugin from Scratch',
+                    date: 'November 2025',
+                    tags: ['WordPress', 'Plugin Development', 'PHP', 'Admin Menu', 'Setting Page'],
+                    content: `
+                        <p class="text-slate text-lg leading-relaxed mb-6">Developing a custom plugin provides a deeper understanding of WordPress architecture beyond theme development. Starting with admin menus, settings pages, and frontend controls, even a simple plugin can solve real content management challenges.</p>
+
+                        <p class="text-slate leading-relaxed mb-4">Using PHP, hooks, and structured plugin architecture ensures scalability for future updates, making custom plugins both maintainable and production-ready.</p>
+                    `
+                }
+            };
+
+            window.openBlogModal = function (id) {
+                const modal = document.getElementById('blog-modal');
+                const body = document.getElementById('modal-body');
+                const container = document.getElementById('modal-container');
+                const data = blogData[id];
+
+                const tagsHtml = data.tags.map(tag => `<span class="bg-navy px-3 py-1 rounded text-teal font-mono text-xs">${tag}</span>`).join('');
+
+                body.innerHTML = `
+                    <p class="text-teal font-mono text-sm mb-4">${data.date}</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-lightest mb-6">${data.title}</h2>
+                    <div class="flex gap-3 mb-10 border-b border-navy-lightest pb-6">${tagsHtml}</div>
+                    <div class="prose prose-invert max-w-none">
+                        ${data.content}
+                    </div>
+                `;
+
+                modal.classList.remove('hidden');
+
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    container.classList.remove('scale-95');
+                    container.classList.add('scale-100');
+                }, 10);
+
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeBlogModal = function () {
+                const modal = document.getElementById('blog-modal');
+                const container = document.getElementById('modal-container');
+
+                modal.classList.add('opacity-0');
+                container.classList.remove('scale-100');
+                container.classList.add('scale-95');
+
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+
+                document.body.style.overflow = 'auto';
+            };
+        });
+    </script>
+
+    <script id="cuwl6w">
+        const slider = document.getElementById("blogSlider");
+        const nextBtn = document.getElementById("blogNext");
+        const prevBtn = document.getElementById("blogPrev");
+
+        const cards = [...slider.children];
+        const cardWidth = 400;
+
+        // duplicate cards for infinite effect
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.appendChild(clone);
+        });
+
+        function slideNext() {
+
+            slider.scrollBy({
+                left: cardWidth,
+                behavior: "smooth"
+            });
+
+            // when original set ends,
+            // reset silently to beginning
+            if (
+                slider.scrollLeft >=
+                (cards.length * cardWidth)
+            ) {
+
+                setTimeout(() => {
+
+                    slider.style.scrollBehavior = "auto";
+                    slider.scrollLeft = 0;
+                    slider.style.scrollBehavior = "smooth";
+
+                }, 500);
+
+            }
+        }
+
+        function slidePrev() {
+
+            slider.scrollBy({
+                left: -cardWidth,
+                behavior: "smooth"
+            });
+        }
+
+        nextBtn.addEventListener("click", slideNext);
+        prevBtn.addEventListener("click", slidePrev);
+
+        // auto slide
+        setInterval(slideNext, 4000);
+    </script>
+    <style id="8gq3tn">
+        #blogSlider::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media(max-width:768px) {
+
+            #blogPrev,
+            #blogNext {
+                display: none;
+            }
+
+        }
+    </style>
+</body>
+
+</html>
