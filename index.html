@@ -164,32 +164,53 @@
                 <a href="Aayushi Ghosh - 12-05-2026.pdf" class="btn-outline ml-4" target="_blank">Resume</a>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-teal hover:text-white focus:outline-none z-50 relative">
+            <button id="mobile-menu-btn" class="md:hidden text-teal hover:text-white focus:outline-none relative" style="z-index: 10000;">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
 
         <div id="mobile-menu"
-            class="fixed inset-0 bg-navy-light transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-6 z-40">
-            <a href="#about"
-                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
-                    class="text-teal mb-1 text-sm">01.</span> About</a>
-            <a href="#experience"
-                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
-                    class="text-teal mb-1 text-sm">02.</span> Experience</a>
-            <a href="#education"
-                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
-                    class="text-teal mb-1 text-sm">03.</span> Education</a>
-            <a href="#work"
-                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
-                    class="text-teal mb-1 text-sm">04.</span> Work</a>
-            <a href="#blog"
-                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
-                    class="text-teal mb-1 text-sm">05.</span> Blog</a>
-            <a href="#contact"
-                class="mobile-link text-lg font-mono text-slate hover:text-teal flex flex-col items-center"><span
-                    class="text-teal mb-1 text-sm">06.</span> Contact</a>
-            <a href="#contact" class="btn-outline mt-8 w-48 text-center mobile-link">Resume</a>
+            class="fixed top-0 right-0 transform translate-x-full transition-transform duration-300"
+            style="z-index: 9999; background-color: #112240; width: 70%; max-width: 280px; height: 100vh; height: 100dvh; box-shadow: -10px 0 40px rgba(2,12,27,0.8); display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; padding: 80px 32px 40px;">
+
+            <!-- nav links -->
+            <nav style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; width: 100%;">
+                <a href="#about" class="mobile-link"
+                   style="font-family: 'Fira Code', monospace; color: #a8b2d1; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; padding: 14px 0; width: 100%; text-align: left; border-bottom: 1px solid #1e3a5f;">
+                    <span style="color: #64ffda; font-size: 0.75rem; margin-bottom: 4px;">01.</span>
+                    <span style="font-size: 1rem;">About</span>
+                </a>
+                <a href="#experience" class="mobile-link"
+                   style="font-family: 'Fira Code', monospace; color: #a8b2d1; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; padding: 14px 0; width: 100%; text-align: left; border-bottom: 1px solid #1e3a5f;">
+                    <span style="color: #64ffda; font-size: 0.75rem; margin-bottom: 4px;">02.</span>
+                    <span style="font-size: 1rem;">Experience</span>
+                </a>
+                <a href="#education" class="mobile-link"
+                   style="font-family: 'Fira Code', monospace; color: #a8b2d1; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; padding: 14px 0; width: 100%; text-align: left; border-bottom: 1px solid #1e3a5f;">
+                    <span style="color: #64ffda; font-size: 0.75rem; margin-bottom: 4px;">03.</span>
+                    <span style="font-size: 1rem;">Education</span>
+                </a>
+                <a href="#work" class="mobile-link"
+                   style="font-family: 'Fira Code', monospace; color: #a8b2d1; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; padding: 14px 0; width: 100%; text-align: left; border-bottom: 1px solid #1e3a5f;">
+                    <span style="color: #64ffda; font-size: 0.75rem; margin-bottom: 4px;">04.</span>
+                    <span style="font-size: 1rem;">Work</span>
+                </a>
+                <a href="#blog" class="mobile-link"
+                   style="font-family: 'Fira Code', monospace; color: #a8b2d1; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; padding: 14px 0; width: 100%; text-align: left; border-bottom: 1px solid #1e3a5f;">
+                    <span style="color: #64ffda; font-size: 0.75rem; margin-bottom: 4px;">05.</span>
+                    <span style="font-size: 1rem;">Blog</span>
+                </a>
+                <a href="#contact" class="mobile-link"
+                   style="font-family: 'Fira Code', monospace; color: #a8b2d1; text-decoration: none; display: flex; flex-direction: column; align-items: flex-start; padding: 14px 0; width: 100%; text-align: left;">
+                    <span style="color: #64ffda; font-size: 0.75rem; margin-bottom: 4px;">06.</span>
+                    <span style="font-size: 1rem;">Contact</span>
+                </a>
+            </nav>
+
+            <a href="Aayushi Ghosh - 12-05-2026.pdf" target="_blank" class="mobile-link"
+               style="margin-top: 32px; font-family: 'Fira Code', monospace; font-size: 0.875rem; color: #64ffda; border: 1px solid #64ffda; border-radius: 4px; padding: 12px 0; text-decoration: none; text-align: center; width: 100%;">
+               Resume
+            </a>
         </div>
     </nav>
 
@@ -788,7 +809,7 @@
                     class="fab fa-github text-lg"></i></a>
             <a href="https://www.linkedin.com/in/aayushi-ghosh-10b819223/" class="hover:text-teal transition-colors"><i
                     class="fab fa-linkedin-in text-lg"></i></a>
-            <a href="#" class="hover:text-teal transition-colors"><i class="fab fa-codepen text-lg"></i></a>
+            <a href="https://www.hackerrank.com/profile/aayushighosh2091" class="hover:text-teal transition-colors"><i class="fa-brands fa-hackerrank"></i></a>
         </div>
 
         <a href="#" class="hover:text-teal transition-colors mb-2">Designed & Built by Aayushi Ghosh</a>
