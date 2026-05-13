@@ -231,7 +231,7 @@
                     I develop things for the web.
                 </h2>
                 <p class="max-w-xl text-slate text-lg mb-12 leading-relaxed animate-slide-up delay-400">
-                    I’m a Web Developer specializing in custom WordPress CMS websites and WooCommerce solutions, while
+                    I'm a Web Developer specializing in custom WordPress CMS websites and WooCommerce solutions, while
                     continuously broadening my knowledge in frontend and backend development.
                 </p>
                 <div class="animate-slide-up delay-500">
@@ -267,7 +267,7 @@
                 <div class="grid md:grid-cols-5 gap-12">
                     <div class="md:col-span-3 text-lg leading-relaxed text-slate">
                         <p class="mb-4">
-                            Hi, I’m Aayushi Ghosh, a passionate web developer, and my journey into web development began
+                            Hi, I'm Aayushi Ghosh, a passionate web developer, and my journey into web development began
                             with a curiosity for turning static designs into interactive websites—experimenting with
                             HTML, CSS, and then customizing WordPress themes to see ideas come to life in real time.
                         </p>
@@ -408,7 +408,7 @@
                     <h3 class="text-xl md:text-2xl font-medium text-slate-lightest mb-1">
                         Class 10 -ICSE
                     </h3>
-                    <p class="text-teal font-mono text-sm mb-4">ST. AUGUSTINE’S DAY SCHOOL | 2005 - 2018 | 81.4%</p>
+                    <p class="text-teal font-mono text-sm mb-4">ST. AUGUSTINE'S DAY SCHOOL | 2005 - 2018 | 81.4%</p>
                     <p class="text-slate text-base leading-relaxed">
                         Developed core academic fundamentals, discipline, and curiosity for technology, laying the
                         foundation for my future journey in computer science.
@@ -417,176 +417,307 @@
             </div>
         </section>
 
+        <!-- =====================================================================
+             WORK SECTION — FIX: Mobile project images now always visible.
+             On mobile: image stacks on top, text below (no pointer-events tricks).
+             On desktop: original overlapping grid layout is preserved.
+        ====================================================================== -->
         <section id="work" class="py-24 max-w-5xl mx-auto">
             <div class="reveal">
                 <h2 class="section-heading"><span
                         class="text-teal font-mono text-xl md:text-2xl font-normal mr-3">04.</span> Some Things I've
                     Developed</h2>
 
-                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-24 reveal delay-100 group">
-                    <div
-                        class="md:col-span-7 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
-                        <div
-                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                <!-- PROJECT 1 — image left, text right -->
+                <div class="mb-24 reveal delay-100 group">
+                    <!-- MOBILE layout: stacked, image on top -->
+                    <div class="md:hidden flex flex-col gap-6">
+                        <div class="relative shadow-2xl overflow-hidden rounded">
+                            <img src="work1.png" alt="FusionKart Screenshot" class="w-full h-auto object-cover rounded">
                         </div>
-                        <div
-                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
-                            <img src="work1.png" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative z-20 md:col-span-6 md:col-start-7 md:text-right p-6 md:p-0 flex flex-col justify-center h-full text-left col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
-                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
-                        <h3
-                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
-                            FusionKart</h3>
-                        <div
-                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
-                            <p>
+                        <div class="flex flex-col gap-3">
+                            <p class="font-mono text-teal text-sm">Featured Project</p>
+                            <h3 class="text-2xl font-bold text-slate-lightest">FusionKart</h3>
+                            <div class="bg-navy-light p-5 rounded shadow-xl text-slate text-sm leading-relaxed">
                                 Developed a fully customized informational CMS website using WordPress, featuring
                                 dynamic navigation, custom content management, service sections, FAQ modules, and
-                                integrated
-                                contact forms. Built a highly responsive custom UI on the Twenty Twenty-One theme with
-                                custom
-                                template files, successfully converting a static HTML, CSS, and JavaScript design into a
-                                dynamic
-                                and scalable WordPress solution.
-                            </p>
+                                integrated contact forms. Built a highly responsive custom UI on the Twenty Twenty-One
+                                theme, converting a static HTML/CSS/JS design into a dynamic and scalable WordPress
+                                solution.
+                            </div>
+                            <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-3">
+                                <li>WordPress</li>
+                                <li>Twenty Twenty-One theme</li>
+                                <li>ACF Pro</li>
+                                <li>Contact Form 7</li>
+                            </ul>
+                            <div class="flex gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
-                        <ul class="flex flex-wrap md:justify-end font-mono text-xs text-slate-light gap-4 mb-4">
-                            <li>WordPress</li>
-                            <li>Twenty Twenty-One theme</li>
-                            <li>ACF Pro</li>
-                            <li>Contact Form 7</li>
-                        </ul>
-                        <div class="flex md:justify-end gap-4 text-slate-light pointer-events-auto">
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fab fa-github text-xl"></i></a>
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fas fa-external-link-alt text-xl"></i></a>
+                    </div>
+                    <!-- DESKTOP layout: original overlapping grid -->
+                    <div class="hidden md:grid md:grid-cols-12 gap-4 items-center">
+                        <div
+                            class="md:col-span-7 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                            <div
+                                class="absolute inset-0 bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                            </div>
+                            <div
+                                class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                                <img src="work1.png" alt="FusionKart Screenshot"
+                                    class="w-full h-auto object-cover rounded">
+                            </div>
+                        </div>
+                        <div
+                            class="relative z-20 md:col-span-6 md:col-start-7 md:text-right p-6 md:p-0 flex flex-col justify-center h-full">
+                            <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                            <h3
+                                class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                                FusionKart</h3>
+                            <div
+                                class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift">
+                                <p>Developed a fully customized informational CMS website using WordPress, featuring
+                                    dynamic navigation, custom content management, service sections, FAQ modules, and
+                                    integrated contact forms. Built a highly responsive custom UI on the Twenty
+                                    Twenty-One theme with custom
+                                    template files, successfully converting a static HTML, CSS, and JavaScript design
+                                    into a dynamic
+                                    and scalable WordPress solution.</p>
+                            </div>
+                            <ul class="flex flex-wrap md:justify-end font-mono text-xs text-slate-light gap-4 mb-4">
+                                <li>WordPress</li>
+                                <li>Twenty Twenty-One theme</li>
+                                <li>ACF Pro</li>
+                                <li>Contact Form 7</li>
+                            </ul>
+                            <div class="flex md:justify-end gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-24 reveal delay-100 group">
-                    <div
-                        class="relative z-20 md:col-span-6 text-left p-6 md:p-0 flex flex-col justify-center h-full col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
-                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
-                        <h3
-                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
-                            EduVista</h3>
-                        <div
-                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
-                            <p>Developed EduVista, a fully customized multi-page educational website built with
-                                WordPress and Elementor. Created responsive and engaging page layouts with dynamic
-                                content sections, intuitive navigation, course highlights, service modules, and
-                                integrated contact forms, ensuring a seamless user experience across all devices.</p>
+                <!-- PROJECT 2 — text left, image right -->
+                <div class="mb-24 reveal delay-100 group">
+                    <!-- MOBILE layout -->
+                    <div class="md:hidden flex flex-col gap-6">
+                        <div class="relative shadow-2xl overflow-hidden rounded">
+                            <img src="work2.jpeg" alt="EduVista Screenshot" class="w-full h-auto object-cover rounded">
                         </div>
-                        <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-4 mb-4">
-                            <li>WordPress</li>
-                            <li>Hello Elementor theme</li>
-                            <li>Elementor</li>
-                            <li>CSS</li>
-                        </ul>
-                        <div class="flex gap-4 text-slate-light pointer-events-auto">
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fab fa-github text-xl"></i></a>
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        <div class="flex flex-col gap-3">
+                            <p class="font-mono text-teal text-sm">Featured Project</p>
+                            <h3 class="text-2xl font-bold text-slate-lightest">EduVista</h3>
+                            <div class="bg-navy-light p-5 rounded shadow-xl text-slate text-sm leading-relaxed">
+                                Developed EduVista, a fully customized multi-page educational website built with
+                                WordPress and Elementor. Created responsive page layouts with dynamic content sections,
+                                intuitive navigation, course highlights, service modules, and integrated contact forms.
+                            </div>
+                            <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-3">
+                                <li>WordPress</li>
+                                <li>Hello Elementor theme</li>
+                                <li>Elementor</li>
+                                <li>CSS</li>
+                            </ul>
+                            <div class="flex gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
                     </div>
-
-                    <div
-                        class="md:col-span-7 md:col-start-6 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                    <!-- DESKTOP layout -->
+                    <div class="hidden md:grid md:grid-cols-12 gap-4 items-center">
                         <div
-                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                            class="relative z-20 md:col-span-6 text-left p-6 md:p-0 flex flex-col justify-center h-full">
+                            <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                            <h3
+                                class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                                EduVista</h3>
+                            <div
+                                class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift">
+                                <p>Developed EduVista, a fully customized multi-page educational website built with
+                                    WordPress and Elementor. Created responsive and engaging page layouts with dynamic
+                                    content sections, intuitive navigation, course highlights, service modules, and
+                                    integrated contact forms, ensuring a seamless user experience across all devices.
+                                </p>
+                            </div>
+                            <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-4 mb-4">
+                                <li>WordPress</li>
+                                <li>Hello Elementor theme</li>
+                                <li>Elementor</li>
+                                <li>CSS</li>
+                            </ul>
+                            <div class="flex gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
                         <div
-                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
-                            <img src="work2.jpeg" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
+                            class="md:col-span-7 md:col-start-6 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                            <div
+                                class="absolute inset-0 bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                            </div>
+                            <div
+                                class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                                <img src="work2.jpeg" alt="EduVista Screenshot"
+                                    class="w-full h-auto object-cover rounded">
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-10 reveal delay-100 group">
-                    <div
-                        class="md:col-span-7 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
-                        <div
-                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                <!-- PROJECT 3 — image left, text right -->
+                <div class="mb-24 reveal delay-100 group">
+                    <!-- MOBILE layout -->
+                    <div class="md:hidden flex flex-col gap-6">
+                        <div class="relative shadow-2xl overflow-hidden rounded">
+                            <img src="work3.jpeg" alt="WooSample Screenshot" class="w-full h-auto object-cover rounded">
                         </div>
-                        <div
-                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
-                            <img src="work3.jpeg" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
-                        </div>
-                    </div>
-
-                    <div
-                        class="relative z-20 md:col-span-6 md:col-start-7 md:text-right p-6 md:p-0 flex flex-col justify-center h-full text-left col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
-                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
-                        <h3
-                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
-                            WooSample</h3>
-                        <div
-                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
-                            <p>Developed WooSample, a fully customized e-commerce website built with
-                                WordPress and WooCommerce. Implemented dynamic product listings, detailed product pages,
+                        <div class="flex flex-col gap-3">
+                            <p class="font-mono text-teal text-sm">Featured Project</p>
+                            <h3 class="text-2xl font-bold text-slate-lightest">WooSample</h3>
+                            <div class="bg-navy-light p-5 rounded shadow-xl text-slate text-sm leading-relaxed">
+                                Developed WooSample, a fully customized e-commerce website built with WordPress and
+                                WooCommerce. Implemented dynamic product listings, detailed product pages,
                                 category-based sidebar navigation, integrated product search, custom template overrides,
-                                cart and checkout functionality, and multiple plugin integrations to create a seamless
-                                and responsive shopping experience.</p>
+                                and cart and checkout functionality.
+                            </div>
+                            <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-3">
+                                <li>WordPress</li>
+                                <li>Twenty Twenty-One theme</li>
+                                <li>WooCommerce</li>
+                            </ul>
+                            <div class="flex gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
-                        <ul class="flex flex-wrap md:justify-end font-mono text-xs text-slate-light gap-4 mb-4">
-                            <li>WordPress</li>
-                            <li>Twenty Twenty-One theme</li>
-                            <li>WooCommerce</li>
-                        </ul>
-                        <div class="flex md:justify-end gap-4 text-slate-light pointer-events-auto">
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fab fa-github text-xl"></i></a>
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fas fa-external-link-alt text-xl"></i></a>
+                    </div>
+                    <!-- DESKTOP layout -->
+                    <div class="hidden md:grid md:grid-cols-12 gap-4 items-center">
+                        <div
+                            class="md:col-span-7 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                            <div
+                                class="absolute inset-0 bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                            </div>
+                            <div
+                                class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                                <img src="work3.jpeg" alt="WooSample Screenshot"
+                                    class="w-full h-auto object-cover rounded">
+                            </div>
+                        </div>
+                        <div
+                            class="relative z-20 md:col-span-6 md:col-start-7 md:text-right p-6 md:p-0 flex flex-col justify-center h-full">
+                            <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                            <h3
+                                class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                                WooSample</h3>
+                            <div
+                                class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift">
+                                <p>Developed WooSample, a fully customized e-commerce website built with
+                                    WordPress and WooCommerce. Implemented dynamic product listings, detailed product
+                                    pages,
+                                    category-based sidebar navigation, integrated product search, custom template
+                                    overrides,
+                                    cart and checkout functionality, and multiple plugin integrations to create a
+                                    seamless
+                                    and responsive shopping experience.</p>
+                            </div>
+                            <ul class="flex flex-wrap md:justify-end font-mono text-xs text-slate-light gap-4 mb-4">
+                                <li>WordPress</li>
+                                <li>Twenty Twenty-One theme</li>
+                                <li>WooCommerce</li>
+                            </ul>
+                            <div class="flex md:justify-end gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="relative grid md:grid-cols-12 gap-4 items-center mb-24 reveal delay-100 group">
-                    <div
-                        class="relative z-20 md:col-span-6 text-left p-6 md:p-0 flex flex-col justify-center h-full col-span-12 row-start-1 md:row-start-auto pointer-events-none md:pointer-events-auto">
-                        <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
-                        <h3
-                            class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
-                            CustomAura</h3>
-                        <div
-                            class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift pointer-events-auto">
-                            <p>
-                                Developed <strong>CustomAura</strong>, a fully customized single-page WordPress website
-                                using a custom theme and custom template files. Integrated essential plugins,
-                                implemented
-                                dynamic content management with ACF to create an engaging and user-friendly online
-                                presence.
-                            </p>
+                <!-- PROJECT 4 — text left, image right -->
+                <div class="mb-24 reveal delay-100 group">
+                    <!-- MOBILE layout -->
+                    <div class="md:hidden flex flex-col gap-6">
+                        <div class="relative shadow-2xl overflow-hidden rounded">
+                            <img src="work4.jpeg" alt="CustomAura Screenshot"
+                                class="w-full h-auto object-cover rounded">
                         </div>
-                        <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-4 mb-4">
-                            <li>WordPress</li>
-                            <li>Custom Theme</li>
-                            <li>ACF Pro</li>
-                        </ul>
-                        <div class="flex gap-4 text-slate-light pointer-events-auto">
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fab fa-github text-xl"></i></a>
-                            <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
-                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        <div class="flex flex-col gap-3">
+                            <p class="font-mono text-teal text-sm">Featured Project</p>
+                            <h3 class="text-2xl font-bold text-slate-lightest">CustomAura</h3>
+                            <div class="bg-navy-light p-5 rounded shadow-xl text-slate text-sm leading-relaxed">
+                                Developed CustomAura, a fully customized single-page WordPress website using a custom
+                                theme and custom template files. Integrated essential plugins and implemented dynamic
+                                content management with ACF to create an engaging and user-friendly online presence.
+                            </div>
+                            <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-3">
+                                <li>WordPress</li>
+                                <li>Custom Theme</li>
+                                <li>ACF Pro</li>
+                            </ul>
+                            <div class="flex gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal transition-colors"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
                     </div>
-
-                    <div
-                        class="md:col-span-7 md:col-start-6 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                    <!-- DESKTOP layout -->
+                    <div class="hidden md:grid md:grid-cols-12 gap-4 items-center">
                         <div
-                            class="absolute inset-0 bg-navy/80 md:bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                            class="relative z-20 md:col-span-6 text-left p-6 md:p-0 flex flex-col justify-center h-full">
+                            <p class="font-mono text-teal text-sm mb-2">Featured Project</p>
+                            <h3
+                                class="text-2xl font-bold text-slate-lightest mb-4 md:mb-6 hover:text-teal cursor-pointer transition-colors">
+                                CustomAura</h3>
+                            <div
+                                class="bg-navy-light p-6 rounded shadow-xl text-slate text-base mb-6 relative hover-lift">
+                                <p>Developed <strong>CustomAura</strong>, a fully customized single-page WordPress
+                                    website
+                                    using a custom theme and custom template files. Integrated essential plugins,
+                                    implemented dynamic content management with ACF to create an engaging and
+                                    user-friendly
+                                    online presence.</p>
+                            </div>
+                            <ul class="flex flex-wrap font-mono text-xs text-slate-light gap-4 mb-4">
+                                <li>WordPress</li>
+                                <li>Custom Theme</li>
+                                <li>ACF Pro</li>
+                            </ul>
+                            <div class="flex gap-4 text-slate-light">
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fab fa-github text-xl"></i></a>
+                                <a href="#" class="hover:text-teal hover:-translate-y-1 transition-all duration-300"><i
+                                        class="fas fa-external-link-alt text-xl"></i></a>
+                            </div>
                         </div>
                         <div
-                            class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
-                            <img src="work4.jpeg" alt="Project Screenshot" class="w-full h-auto object-cover rounded">
+                            class="md:col-span-7 md:col-start-6 relative shadow-2xl overflow-hidden rounded hover-lift cursor-pointer z-10">
+                            <div
+                                class="absolute inset-0 bg-teal/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-500 z-10">
+                            </div>
+                            <div
+                                class="bg-navy-light aspect-video w-full h-full flex items-center justify-center p-8 transition-transform duration-500 group-hover:scale-105">
+                                <img src="work4.jpeg" alt="CustomAura Screenshot"
+                                    class="w-full h-auto object-cover rounded">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -600,24 +731,30 @@
             </div>
         </section>
 
+        <!-- =====================================================================
+             BLOG SECTION — FIX:
+             1. Cards snap to full width on mobile (one card fully visible at a time)
+             2. Touch / swipe support added
+             3. Auto-slide slowed to 6 seconds (was 4s)
+             4. Arrow buttons hidden on mobile (swipe instead)
+        ====================================================================== -->
         <section id="blog" class="py-24 max-w-5xl mx-auto">
             <div class="reveal">
                 <h2 class="section-heading"><span
                         class="text-teal font-mono text-xl md:text-2xl font-normal mr-3">05.</span> Latest Articles</h2>
 
                 <div class="relative mt-10">
-
-                    <!-- Left arrow -->
+                    <!-- Left arrow (desktop only) -->
                     <button id="blogPrev"
-                        class="absolute left-[-60px] top-1/2 -translate-y-1/2 z-20 text-teal text-2xl hover:scale-110 transition">
+                        class="hidden md:block absolute left-[-60px] top-1/2 -translate-y-1/2 z-20 text-teal text-2xl hover:scale-110 transition">
                         <i class="fas fa-chevron-left"></i>
                     </button>
 
                     <!-- Slider -->
-                    <div id="blogSlider" class="flex gap-6 overflow-hidden scroll-smooth">
+                    <div id="blogSlider" class="flex gap-6 overflow-x-auto scroll-smooth"
+                        style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
 
-                        <!-- your cards stay same here -->
-                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
+                        <div class="blog-card bg-navy-light p-8 rounded shadow-xl cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col"
                             onclick="openBlogModal('blog1')">
                             <div class="flex justify-between items-center mb-6">
                                 <i
@@ -633,7 +770,7 @@
                             <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
                         </div>
 
-                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
+                        <div class="blog-card bg-navy-light p-8 rounded shadow-xl cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col"
                             onclick="openBlogModal('blog2')">
                             <div class="flex justify-between items-center mb-6">
                                 <i
@@ -645,12 +782,12 @@
                                 class="text-xl font-bold text-slate-lightest mb-3 group-hover:text-teal transition-colors">
                                 Customizing WooCommerce Beyond Default Templates</h3>
                             <p class="text-slate text-sm mb-6 flex-grow">Creating a seamless e-commerce experience often
-                                requires going beyond WooCommerce’s default layouts.</p>
+                                requires going beyond WooCommerce's default layouts.</p>
                             <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
                         </div>
 
-                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
-                            onclick="openBlogModal('blog2')">
+                        <div class="blog-card bg-navy-light p-8 rounded shadow-xl cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col"
+                            onclick="openBlogModal('blog3')">
                             <div class="flex justify-between items-center mb-6">
                                 <i
                                     class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
@@ -666,8 +803,8 @@
                             <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
                         </div>
 
-                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
-                            onclick="openBlogModal('blog2')">
+                        <div class="blog-card bg-navy-light p-8 rounded shadow-xl cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col"
+                            onclick="openBlogModal('blog4')">
                             <div class="flex justify-between items-center mb-6">
                                 <i
                                     class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
@@ -683,8 +820,8 @@
                             <p class="font-mono text-xs text-teal mt-auto">Read Article</p>
                         </div>
 
-                        <div class="min-w-[320px] md:min-w-[380px] bg-navy-light p-8 rounded shadow-xl snap-start cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col h-full"
-                            onclick="openBlogModal('blog2')">
+                        <div class="blog-card bg-navy-light p-8 rounded shadow-xl cursor-pointer group hover-lift transition-all duration-300 border border-transparent hover:border-teal/30 flex flex-col"
+                            onclick="openBlogModal('blog5')">
                             <div class="flex justify-between items-center mb-6">
                                 <i
                                     class="far fa-file-alt text-4xl text-teal group-hover:scale-110 transition-transform duration-300"></i>
@@ -701,12 +838,14 @@
 
                     </div>
 
-                    <!-- Right arrow -->
+                    <!-- Right arrow (desktop only) -->
                     <button id="blogNext"
-                        class="absolute right-[-60px] top-1/2 -translate-y-1/2 z-20 text-teal text-2xl hover:scale-110 transition">
+                        class="hidden md:block absolute right-[-60px] top-1/2 -translate-y-1/2 z-20 text-teal text-2xl hover:scale-110 transition">
                         <i class="fas fa-chevron-right"></i>
                     </button>
 
+                    <!-- Mobile swipe hint dots -->
+                    <div id="blogDots" class="flex md:hidden justify-center gap-2 mt-5"></div>
                 </div>
             </div>
         </section>
@@ -753,6 +892,41 @@
         <p>© 2026 Aayushi Ghosh. All rights reserved.</p>
     </footer>
 
+    <!-- =====================================================================
+         BLOG CARD STYLES — responsive sizing + snap
+    ====================================================================== -->
+    <style>
+        #blogSlider {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        #blogSlider::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* On mobile: each card takes full container width and snaps */
+        .blog-card {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            width: calc(100vw - 3rem);
+            /* full viewport minus section padding */
+        }
+
+        /* On tablet and desktop: fixed card width, multiple visible */
+        @media (min-width: 640px) {
+            .blog-card {
+                width: 340px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .blog-card {
+                width: 380px;
+            }
+        }
+    </style>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Navbar Scroll Effect
@@ -761,18 +935,10 @@
 
             window.addEventListener('scroll', () => {
                 const currentScroll = window.pageYOffset;
-
-                if (currentScroll > 0) {
-                    navbar.classList.add('shadow-lg');
-                } else {
-                    navbar.classList.remove('shadow-lg');
-                }
-
-                if (currentScroll > lastScroll && currentScroll > 100) {
-                    navbar.style.transform = 'translateY(-100%)';
-                } else {
-                    navbar.style.transform = 'translateY(0)';
-                }
+                if (currentScroll > 0) navbar.classList.add('shadow-lg');
+                else navbar.classList.remove('shadow-lg');
+                if (currentScroll > lastScroll && currentScroll > 100) navbar.style.transform = 'translateY(-100%)';
+                else navbar.style.transform = 'translateY(0)';
                 lastScroll = currentScroll;
             });
 
@@ -794,20 +960,14 @@
                     document.body.style.overflow = 'auto';
                 }
             }
-
             mobileBtn.addEventListener('click', toggleMenu);
-            mobileLinks.forEach(link => { link.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); }); });
+            mobileLinks.forEach(link => link.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); }));
 
             // Reveal Animations on Scroll
             const revealElements = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
             }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
             revealElements.forEach(el => revealObserver.observe(el));
 
             // Statistics Number Counter Animation
@@ -818,31 +978,21 @@
                         const target = entry.target;
                         const finalValue = parseInt(target.getAttribute('data-target'));
                         const suffix = target.getAttribute('data-suffix') || '';
-                        const duration = 2000; // 2 seconds animation
+                        const duration = 2000;
                         let startTimestamp = null;
-
                         const step = (timestamp) => {
                             if (!startTimestamp) startTimestamp = timestamp;
                             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-
-                            // easeOutQuart formula for smooth deceleration
                             const easeProgress = 1 - Math.pow(1 - progress, 4);
-                            const currentVal = Math.floor(easeProgress * finalValue);
-
-                            target.innerText = currentVal + suffix;
-
-                            if (progress < 1) {
-                                window.requestAnimationFrame(step);
-                            } else {
-                                target.innerText = finalValue + suffix; // Ensure it ends exactly on the number
-                            }
+                            target.innerText = Math.floor(easeProgress * finalValue) + suffix;
+                            if (progress < 1) window.requestAnimationFrame(step);
+                            else target.innerText = finalValue + suffix;
                         };
                         window.requestAnimationFrame(step);
-                        observer.unobserve(target); // Only run animation once
+                        observer.unobserve(target);
                     }
                 });
-            }, { threshold: 0.5 }); // Trigger when 50% of the box is visible
-
+            }, { threshold: 0.5 });
             statCounters.forEach(counter => statsObserver.observe(counter));
 
             // Blog Modal Logic
@@ -853,7 +1003,6 @@
                     tags: ['WordPress', 'Custom Themes', 'ACF'],
                     content: `
                         <p class="text-slate text-lg leading-relaxed mb-6">Building a scalable WordPress website starts with transforming static HTML, CSS, and JavaScript designs into reusable theme components. By structuring layouts with custom template files, headers, footers, and modular sections, content becomes easier to manage and expand.</p>
-
                         <p class="text-slate leading-relaxed mb-4">Using Advanced Custom Fields (ACF) allows non-technical users to update content dynamically without touching code. This approach creates flexible, client-friendly CMS solutions while maintaining complete design control.</p>
                     `
                 },
@@ -862,8 +1011,7 @@
                     date: 'September 2025',
                     tags: ['WooCommerce', 'Template Override', 'Hooks & Filters', 'Customization'],
                     content: `
-                        <p class="text-slate text-lg leading-relaxed mb-6">Creating a seamless e-commerce experience often requires going beyond WooCommerce’s default layouts. Through template overrides, custom product pages, category sidebars, search integration, and checkout enhancements, stores can be tailored to specific business needs.</p>
-
+                        <p class="text-slate text-lg leading-relaxed mb-6">Creating a seamless e-commerce experience often requires going beyond WooCommerce's default layouts. Through template overrides, custom product pages, category sidebars, search integration, and checkout enhancements, stores can be tailored to specific business needs.</p>
                         <p class="text-slate leading-relaxed mb-4">Understanding hooks like add_action() and add_filter() makes it possible to extend functionality without modifying core files, ensuring maintainability while delivering fully customized shopping experiences.</p>
                     `
                 },
@@ -873,7 +1021,6 @@
                     tags: ['WordPress', 'Elementor', 'Customization'],
                     content: `
                         <p class="text-slate text-lg leading-relaxed mb-6">Creating modern business websites with Elementor allows rapid development without compromising design quality. By combining custom layouts, reusable sections, dynamic widgets, and responsive controls, complex multi-page websites can be built efficiently for both clients and content teams.</p>
-
                         <p class="text-slate leading-relaxed mb-4">Optimizing spacing, typography, mobile responsiveness, and plugin compatibility ensures every page delivers a smooth experience across devices while keeping content updates simple and intuitive.</p>
                     `
                 },
@@ -883,7 +1030,6 @@
                     tags: ['WordPress', 'Custom Themes', 'Template Files', 'PHP'],
                     content: `
                         <p class="text-slate text-lg leading-relaxed mb-6">Custom theme development transforms static HTML, CSS, and JavaScript designs into fully dynamic WordPress experiences. By structuring layouts with custom template files, reusable components, and WordPress core functions, every section becomes scalable, editable, and performance-focused.</p>
-
                         <p class="text-slate leading-relaxed mb-4">Integrating plugins, dynamic content fields, and modular page templates creates flexible CMS solutions that maintain design consistency while giving complete control over functionality and content management.</p>
                     `
                 },
@@ -893,7 +1039,6 @@
                     tags: ['WordPress', 'Plugin Development', 'PHP', 'Admin Menu', 'Setting Page'],
                     content: `
                         <p class="text-slate text-lg leading-relaxed mb-6">Developing a custom plugin provides a deeper understanding of WordPress architecture beyond theme development. Starting with admin menus, settings pages, and frontend controls, even a simple plugin can solve real content management challenges.</p>
-
                         <p class="text-slate leading-relaxed mb-4">Using PHP, hooks, and structured plugin architecture ensures scalability for future updates, making custom plugins both maintainable and production-ready.</p>
                     `
                 }
@@ -904,113 +1049,144 @@
                 const body = document.getElementById('modal-body');
                 const container = document.getElementById('modal-container');
                 const data = blogData[id];
-
                 const tagsHtml = data.tags.map(tag => `<span class="bg-navy px-3 py-1 rounded text-teal font-mono text-xs">${tag}</span>`).join('');
-
                 body.innerHTML = `
                     <p class="text-teal font-mono text-sm mb-4">${data.date}</p>
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-lightest mb-6">${data.title}</h2>
-                    <div class="flex gap-3 mb-10 border-b border-navy-lightest pb-6">${tagsHtml}</div>
-                    <div class="prose prose-invert max-w-none">
-                        ${data.content}
-                    </div>
+                    <div class="flex flex-wrap gap-3 mb-10 border-b border-navy-lightest pb-6">${tagsHtml}</div>
+                    <div class="prose prose-invert max-w-none">${data.content}</div>
                 `;
-
                 modal.classList.remove('hidden');
-
                 setTimeout(() => {
                     modal.classList.remove('opacity-0');
                     container.classList.remove('scale-95');
                     container.classList.add('scale-100');
                 }, 10);
-
                 document.body.style.overflow = 'hidden';
             };
 
             window.closeBlogModal = function () {
                 const modal = document.getElementById('blog-modal');
                 const container = document.getElementById('modal-container');
-
                 modal.classList.add('opacity-0');
                 container.classList.remove('scale-100');
                 container.classList.add('scale-95');
-
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
-
+                setTimeout(() => modal.classList.add('hidden'), 300);
                 document.body.style.overflow = 'auto';
             };
+
+            // ===================================================
+            // BLOG SLIDER — touch support + auto-slide + dots
+            // ===================================================
+            const slider = document.getElementById('blogSlider');
+            const nextBtn = document.getElementById('blogNext');
+            const prevBtn = document.getElementById('blogPrev');
+            const dotsContainer = document.getElementById('blogDots');
+            const originalCards = [...slider.querySelectorAll('.blog-card')];
+            const totalCards = originalCards.length;
+
+            // Build dots for mobile
+            originalCards.forEach((_, i) => {
+                const dot = document.createElement('span');
+                dot.className = 'w-2 h-2 rounded-full bg-navy-lightest transition-all duration-300';
+                dot.dataset.index = i;
+                dotsContainer.appendChild(dot);
+            });
+
+            function updateDots() {
+                const cardWidth = originalCards[0].offsetWidth + 24; // card + gap
+                const currentIndex = Math.round(slider.scrollLeft / cardWidth) % totalCards;
+                [...dotsContainer.children].forEach((dot, i) => {
+                    dot.className = i === currentIndex
+                        ? 'w-4 h-2 rounded-full bg-teal transition-all duration-300'
+                        : 'w-2 h-2 rounded-full bg-navy-lightest transition-all duration-300';
+                });
+            }
+
+            slider.addEventListener('scroll', updateDots, { passive: true });
+            updateDots();
+
+            // Duplicate cards for infinite loop
+            originalCards.forEach(card => {
+                const clone = card.cloneNode(true);
+                // re-attach onclick since cloneNode doesn't copy listeners
+                const origOnclick = card.getAttribute('onclick');
+                if (origOnclick) clone.setAttribute('onclick', origOnclick);
+                slider.appendChild(clone);
+            });
+
+            function getCardWidth() {
+                return originalCards[0].offsetWidth + 24; // card width + gap (gap-6 = 24px)
+            }
+
+            function slideNext() {
+                const cardWidth = getCardWidth();
+                slider.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                if (slider.scrollLeft >= totalCards * cardWidth - 1) {
+                    setTimeout(() => {
+                        slider.style.scrollBehavior = 'auto';
+                        slider.scrollLeft = 0;
+                        slider.style.scrollBehavior = 'smooth';
+                    }, 500);
+                }
+            }
+
+            function slidePrev() {
+                const cardWidth = getCardWidth();
+                if (slider.scrollLeft <= 0) {
+                    slider.style.scrollBehavior = 'auto';
+                    slider.scrollLeft = totalCards * cardWidth;
+                    slider.style.scrollBehavior = 'smooth';
+                }
+                slider.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+            }
+
+            nextBtn.addEventListener('click', slideNext);
+            prevBtn.addEventListener('click', slidePrev);
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchStartScrollLeft = 0;
+            let isDragging = false;
+
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+                touchStartScrollLeft = slider.scrollLeft;
+                isDragging = true;
+                // Pause auto-slide while user interacts
+                clearInterval(autoSlideInterval);
+            }, { passive: true });
+
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                const dx = touchStartX - e.touches[0].clientX;
+                slider.scrollLeft = touchStartScrollLeft + dx;
+            }, { passive: true });
+
+            slider.addEventListener('touchend', (e) => {
+                isDragging = false;
+                // Snap to nearest card
+                const cardWidth = getCardWidth();
+                const nearestCard = Math.round(slider.scrollLeft / cardWidth);
+                slider.scrollTo({ left: nearestCard * cardWidth, behavior: 'smooth' });
+                // Resume auto-slide
+                startAutoSlide();
+            }, { passive: true });
+
+            // Auto-slide — slowed to 6 seconds
+            let autoSlideInterval;
+            function startAutoSlide() {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(slideNext, 6000);
+            }
+            startAutoSlide();
+
+            // Pause auto-slide on hover (desktop)
+            slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+            slider.addEventListener('mouseleave', startAutoSlide);
         });
     </script>
 
-    <script id="cuwl6w">
-        const slider = document.getElementById("blogSlider");
-        const nextBtn = document.getElementById("blogNext");
-        const prevBtn = document.getElementById("blogPrev");
-
-        const cards = [...slider.children];
-        const cardWidth = 400;
-
-        // duplicate cards for infinite effect
-        cards.forEach(card => {
-            const clone = card.cloneNode(true);
-            slider.appendChild(clone);
-        });
-
-        function slideNext() {
-
-            slider.scrollBy({
-                left: cardWidth,
-                behavior: "smooth"
-            });
-
-            // when original set ends,
-            // reset silently to beginning
-            if (
-                slider.scrollLeft >=
-                (cards.length * cardWidth)
-            ) {
-
-                setTimeout(() => {
-
-                    slider.style.scrollBehavior = "auto";
-                    slider.scrollLeft = 0;
-                    slider.style.scrollBehavior = "smooth";
-
-                }, 500);
-
-            }
-        }
-
-        function slidePrev() {
-
-            slider.scrollBy({
-                left: -cardWidth,
-                behavior: "smooth"
-            });
-        }
-
-        nextBtn.addEventListener("click", slideNext);
-        prevBtn.addEventListener("click", slidePrev);
-
-        // auto slide
-        setInterval(slideNext, 4000);
-    </script>
-    <style id="8gq3tn">
-        #blogSlider::-webkit-scrollbar {
-            display: none;
-        }
-
-        @media(max-width:768px) {
-
-            #blogPrev,
-            #blogNext {
-                display: none;
-            }
-
-        }
-    </style>
 </body>
 
 </html>
